@@ -1,13 +1,13 @@
-import { FaDiscord, FaGithub, FaMapPin } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaMapPin, FaLinkedin } from "react-icons/fa";
 import { HiCode, HiCube, HiDatabase, HiMail, HiBriefcase } from "react-icons/hi";
 
 export const config = {
     developer: {
-        name: "Huzaif",
+        name: "Abhijeet",
     },
     social: {
-        github: "huzaifahmedz",
-        discord: "#"
+        github: "Abhijeetjais98",
+        discord: "https://discordapp.com/users/1434161237037547591"
     },
     NAV_ITEMS: [
         { href: '/projects', label: 'Projects' },
@@ -17,64 +17,45 @@ export const config = {
     projects: [
         {
             id: 1,
-            title: "AI-Powered Code Review Assistant",
-            description: "An intelligent code review platform that uses machine learning to analyze pull requests, detect bugs, suggest optimizations, and enforce coding standards. Features real-time collaboration, automated testing integration, and comprehensive security scanning.",
+            title: "Tour & Travel Website",
+            description: "A responsive tour and travel website where users can explore destinations, view packages, and plan their trips easily.",
             image: "/projects/project-1.webp",
-            technologies: ["Python", "TensorFlow", "React", "FastAPI", "PostgreSQL", "Docker"],
+            technologies: ["HTML", "CSS", "Javascript", "PHP",],
             github: "#",
-            demo: "#"
+            demo: "https://tour-travels-three.vercel.app/"
         },
         {
             id: 2,
-            title: "Real-time Collaborative Whiteboard",
-            description: "A next-generation collaborative whiteboard platform with infinite canvas, real-time synchronization, and advanced drawing tools. Supports video conferencing, screen sharing, and export to multiple formats. Built for remote teams and educators.",
+            title: "Sorting Algorithm Visualizer",
+            description: "A sorting visualizer that demonstrates algorithm behavior through real-time animations. Users can choose different sorting algorithms, adjust speed, and visualize the sorting process step-by-step.",
             image: "/projects/project-2.webp",
-            technologies: ["TypeScript", "WebRTC", "Socket.io", "Canvas API", "Node.js", "Redis"],
+            technologies: ["HTML", "CSS", "JAVASCRIPT"],
             github: "#",
-            demo: "#"
+            demo: "https://sortingvisualizer-wine.vercel.app/"
         },
         {
             id: 3,
-            title: "Blockchain Voting System",
-            description: "A secure, transparent, and decentralized voting platform built on Ethereum. Features smart contract-based voting, anonymous ballots, real-time result tracking, and immutable audit trails. Ensures election integrity through cryptographic verification.",
+            title: "Netflix Frontend Clone",
+            description: "A fully responsive Netflix frontend clone showcasing movie rows, banners, and an intuitive user interface.",
             image: "/projects/project-3.webp",
-            technologies: ["Solidity", "Web3.js", "React", "Ethereum", "IPFS", "MetaMask"],
+            technologies: ["HTML", "CSS"],
             github: "#",
-            demo: "#"
-        },
-        {
-            id: 4,
-            title: "Cloud Infrastructure Dashboard",
-            description: "A comprehensive cloud management platform for monitoring, managing, and optimizing multi-cloud infrastructure. Features real-time metrics, cost analysis, automated scaling, and security compliance monitoring across AWS, Azure, and GCP.",
-            image: "/projects/project-4.webp",
-            technologies: ["Go", "Kubernetes", "Grafana", "Prometheus", "Terraform", "React"],
-            github: "#",
-            demo: "#"
-        },
-        {
-            id: 5,
-            title: "Neural Network Visualizer",
-            description: "An interactive web application for visualizing, training, and experimenting with neural networks. Features drag-and-drop architecture builder, real-time training visualization, model comparison tools, and export capabilities for production deployment.",
-            image: "/projects/project-5.webp",
-            technologies: ["Python", "TensorFlow.js", "D3.js", "Next.js", "WebGL", "TypeScript"],
-            github: "#",
-            demo: "#"
+            demo: "https://netflix-ds2l.vercel.app/"
         }
- 
     ],
-    skills: [
+     skills: [
         {
-            title: "Frontend",
+            title: "Cloud Services",
             icon: <HiCode />,
-            description: "Modern web interfaces",
+            description: "Cloud hosting, containers, and simple infrastructure management.",
             bgClass: "bg-blue-500/10",
             iconClass: "text-blue-500",
             skills: [
-                { name: "Next.js 15", level: "Advanced", hot: true },
-                { name: "React", level: "Advanced" },
-                { name: "TailwindCSS", level: "Expert" },
-                { name: "JavaScript", level: "Advanced" },
-                { name: "Framer Motion", level: "Intermediate" }
+                { name: "AWS", level: "begginer", hot: true },
+                { name: "CI/CD basics", level: "begginer" },
+                { name: "VM", level: "begginer" },
+                { name: "Cloud deployment", level: "begginer" },
+                { name: "Docker", level: "begginer" }
             ]
         },
         {
@@ -84,9 +65,9 @@ export const config = {
             bgClass: "bg-emerald-500/10",
             iconClass: "text-emerald-500",
             skills: [
-                { name: "Node.js", level: "Advanced", hot: true },
-                { name: "MongoDB", level: "Advanced" },
-                { name: "Express.js", level: "Advanced", hot: true }
+                { name: "Golang", level: "Intermediate", hot: true },
+                { name: "Docker", level: "Intermediate" },
+                { name: "Github", level: "Intermediate", hot: true }
             ]
         },
         {
@@ -97,13 +78,13 @@ export const config = {
             iconClass: "text-orange-500",
             skills: [
                 { name: "VS Code", level: "Expert", hot: true },
-                { name: "Postman", level: "Advanced" },
-                { name: "Photoshop", level: "Intermediate" },
-                { name: "Git", level: "Advanced" }
+                { name: "Linux", level: "Begginer", hot: true },
+                { name: "Photoshop", level: "Expert" },
+                { name: "Git", level: "Intermediate" }
             ]
         }
     ],
-    experiences: [
+     experiences: [
         {
             position: "Frontend Developer",
             company: "SelectSkillSet",
@@ -111,26 +92,26 @@ export const config = {
             location: "Remote",
             description: "Developing modern, responsive frontend applications with focus on user experience and performance. Working with cutting-edge technologies to build scalable web solutions.",
             responsibilities: [
-                "Building responsive and interactive user interfaces using React and Next.js",
-                "Implementing modern UI/UX designs with TailwindCSS and Framer Motion",
+                "Building responsive and interactive user interfaces using HTML , CSS and JavaScript",
+                "Implementing modern UI/UX designs with TailwindCSS",
                 "Optimizing application performance and ensuring cross-browser compatibility",
                 "Collaborating with design and backend teams to deliver high-quality features"
             ],
-            technologies: ["React", "Next.js", "TailwindCSS", "JavaScript", "Framer Motion", "TypeScript"]
+            technologies: ["HTML", "CSS", "TailwindCSS", "JavaScript",]
         },
         {
-            position: "Full Stack Developer",
-            company: "Tekisky",
-            period: "2023 - 2024",
+            position: "Cloud Engineer",
+            company: "SelectSkillSet",
+            period: "2024-present",
             location: "Remote",
-            description: "Developed and maintained full-stack web applications, working on both frontend and backend systems. Collaborated with cross-functional teams to deliver robust software solutions.",
+            description: "Developed and maintained Cloud Projects, working with Golang and docker. Collaborated with cross-functional teams to deliver robust software solutions.",
             responsibilities: [
-                "Developed and maintained full-stack web applications using React, Node.js, and MongoDB",
-                "Implemented RESTful APIs and integrated third-party services",
-                "Built responsive user interfaces and optimized application performance",
-                "Worked on database design and backend architecture"
+                "Created simple backend services in Go and connected them with basic APIs",
+                "Built and ran applications in Docker containers, learning how to package and test code consistently across different environments.",
+                "Deployed small projects to the cloud (like AWS/GCP/Azure) and practiced setting up servers, storage, and networking.",
+                "Monitored and troubleshooted cloud apps, fixing basic issues with logs, containers, and resource usage."
             ],
-            technologies: ["React", "Node.js", "MongoDB", "Express", "JavaScript", "MERN Stack"]
+            technologies: ["AWS", "Docker", "Azure", "Golang", "Kubernetes"]
         }
     ],
     contactInfo: [
@@ -138,14 +119,20 @@ export const config = {
         {
             icon: <FaGithub className="w-5 h-5" />,
             label: "GitHub",
-            value: "@huzaifahmedz",
-            link: `https://github.com/huzaifahmedz`
+            value: "@Abhijeetjais98",
+            link: `https://github.com/Abhijeetjais98`
+        },
+        {
+            icon: <FaLinkedin className="w-5 h-5" />,
+            label: "Linkdin",
+            value: "Abhijeet Kumar",
+            link: `https://www.linkedin.com/in/abhijeetjais13/`
         },
         {
             icon: <HiMail className="w-5 h-5" />,
             label: "Email",
-            value: "dev.huzaif@gmail.com",
-            link: "mailto:dev.huzaif@gmail.com"
+            value: "sastamemepubg@gmail.com",
+            link: "mailto:sastamemepubg@gmail.com"
         },
         {
             icon: <FaMapPin className="w-5 h-5" />,

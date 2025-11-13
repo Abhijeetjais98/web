@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
-import emailjs from "@emailjs/browser";
 
 const ContactForm = ({ onSubmit }) => {
   const {
@@ -15,18 +14,45 @@ const ContactForm = ({ onSubmit }) => {
   } = useForm();
 
   const formRef = useRef();
-//   console.log(`env : ${process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID}`)
 
   const onSubmitHandler = async (data) => {
-    await onSubmit(data);
-    await emailjs.sendForm(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-      formRef.current,
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-    );
+    // If a parent provided an onSubmit prop, call it (optional)
+    if (typeof onSubmit === "function") {
+      try {
+        await onSubmit(data);
+      } catch (err) {
+        // parent handler failed — continue to attempt sending via Web3Forms
+        console.warn("parent onSubmit threw:", err);
+      }
+    }
 
-    reset();
+    const formElement = formRef.current;
+    if (!formElement) return;
+
+    const formData = new FormData(formElement);
+
+    // NOTE: this access_key you provided earlier — keep it here or replace with an env var if you prefer
+    formData.append("access_key", "d23dfcfa-f678-4535-8c7a-ec3f25dd219e");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+       console.log("Message sent successfully");
+        reset();
+      } else {
+        // web3forms returns a `message` key on error
+        alert("Error: " + (result?.message || "Unknown error"));
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -43,13 +69,11 @@ const ContactForm = ({ onSubmit }) => {
               id="name"
               type="text"
               name="name"
-              placeholder="Huzaif"
+              placeholder="Abhijeet"
               className="rounded-lg border-primary/20 w-full"
             />
             {errors.name && (
-              <span className="text-xs text-red-500 block mt-1">
-                {errors.name.message}
-              </span>
+              <span className="text-xs text-red-500 block mt-1">{errors.name.message}</span>
             )}
           </div>
 
@@ -68,13 +92,11 @@ const ContactForm = ({ onSubmit }) => {
               id="email"
               type="email"
               name="email"
-              placeholder="huzaif@example.com"
+              placeholder="xyz@gmail.com"
               className="rounded-lg border-primary/20 w-full"
             />
             {errors.email && (
-              <span className="text-xs text-red-500 block mt-1">
-                {errors.email.message}
-              </span>
+              <span className="text-xs text-red-500 block mt-1">{errors.email.message}</span>
             )}
           </div>
         </div>
@@ -92,9 +114,7 @@ const ContactForm = ({ onSubmit }) => {
             className="rounded-lg border-primary/20 min-h-[150px] w-full resize-y"
           />
           {errors.message && (
-            <span className="text-xs text-red-500 block mt-1">
-              {errors.message.message}
-            </span>
+            <span className="text-xs text-red-500 block mt-1">{errors.message.message}</span>
           )}
         </div>
       </div>

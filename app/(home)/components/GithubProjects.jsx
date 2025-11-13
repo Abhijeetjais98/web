@@ -41,7 +41,7 @@ const languageColors = {
 };
 
 const ITEMS_PER_PAGE = 6;
-const GITHUB_API_URL = `https://api.github.com/users/${config.social.github}/repos`;
+const GITHUB_API_URL = "/repos.json";
 
 const getProjectSize = (index) => {
     const sizes = [
@@ -244,13 +244,9 @@ const GithubProjects = () => {
 
     const projects = React.useMemo(() => {
         if (!data) return [];
-        const filtered = data
-            .filter(project => 
-                !project.fork && 
-                !project.private && 
-                (project.name.toLowerCase().includes('portfolio') || 
-                 (project.topics && project.topics.some(topic => topic.toLowerCase().includes('portfolio'))))
-            )
+           const filtered = data
+    .filter(project => !project.fork && !project.private)
+
             .sort((a, b) => b.stargazers_count - a.stargazers_count)
             .slice(0, ITEMS_PER_PAGE * page);
         
