@@ -18,6 +18,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 const NAV_ITEMS = config.NAV_ITEMS;
 
@@ -31,7 +32,7 @@ const NavLink = ({ href, label, isMobile = false }) => {
             className="relative"
         >
             <motion.span
-                className={`relative ${isMobile ? 'px-4 py-3 text-base' : 'px-4 py-2'} text-gray-300 hover:text-white transition-colors ${isActive ? 'text-white' : ''}`}
+                className={`relative ${isMobile ? 'px-4 py-3 text-base' : 'px-4 py-2'} text-foreground hover:text-primary transition-colors ${isActive ? 'text-primary' : ''}`}
                 whileHover={{ scale: isMobile ? 1 : 1.05 }}
                 whileTap={{ scale: 0.95 }}
             >
@@ -68,7 +69,7 @@ const Logo = ({ isMobile = false }) => (
             className="flex items-center space-x-2 hover:opacity-90 transition-opacity"
         >
             <motion.div
-                whileHover={{ opacity:0.5 }}
+                whileHover={{ opacity: 0.5 }}
                 whileTap={{ scale: 0.95 }}
             >
                 <Image
@@ -80,7 +81,7 @@ const Logo = ({ isMobile = false }) => (
                 />
             </motion.div>
             <motion.span
-                className={`text-gray-300 font-semibold ${isMobile ? 'hidden' : 'text-base sm:text-lg'}`}
+                className={`text-foreground font-semibold ${isMobile ? 'hidden' : 'text-base sm:text-lg'}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -157,7 +158,7 @@ const ContactButton = ({ isMobile = false, openSocials, setOpenSocials }) => {
                 <Button
                     onClick={() => setOpenSocials && setOpenSocials((prev) => !prev)}
                     aria-expanded={openSocials ? "true" : "false"}
-                    className="w-full rounded-2xl font-semibold bg-white text-gray-900 hover:bg-gray-200 text-sm sm:text-base px-4 py-2 flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full rounded-2xl font-semibold bg-secondary text-secondary-foreground hover:bg-secondary/80 text-sm sm:text-base px-4 py-2 flex items-center justify-center gap-2 cursor-pointer"
                 >
                     <span>Socials</span>
                     <span className="ml-2">{openSocials ? <FaChevronUp /> : <FaChevronDown />}</span>
@@ -180,7 +181,7 @@ const ContactButton = ({ isMobile = false, openSocials, setOpenSocials }) => {
                 <Button
                     onClick={() => setOpenSocials && setOpenSocials((prev) => !prev)}
                     aria-expanded={openSocials ? "true" : "false"}
-                    className="rounded-2xl font-semibold bg-white text-gray-900 hover:bg-gray-200 text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 flex items-center gap-2 cursor-pointer"
+                    className="rounded-2xl font-semibold bg-secondary text-secondary-foreground hover:bg-secondary/80 text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 flex items-center gap-2 cursor-pointer"
                 >
                     <span>Socials</span>
                     <svg
@@ -196,38 +197,38 @@ const ContactButton = ({ isMobile = false, openSocials, setOpenSocials }) => {
 
                 {openSocials && (
                     <div
-                        className="absolute right-0 top-full mt-2 bg-white text-gray-900 rounded-xl shadow-lg py-2 min-w-[220px] z-50 max-h-64 overflow-auto"
+                        className="absolute right-0 top-full mt-2 bg-popover text-popover-foreground rounded-xl shadow-lg py-2 min-w-[220px] z-50 max-h-64 overflow-auto border border-border"
                         role="menu"
                         aria-label="Social links"
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                         style={{ transformOrigin: 'top right' }}
                     >
-                        <a className="px-4 py-2 flex gap-2 items-center hover:bg-gray-100 cursor-pointer" href="https://github.com/Abhijeetjais98" target="_blank" rel="noreferrer">
+                        <a className="px-4 py-2 flex gap-2 items-center hover:bg-accent hover:text-accent-foreground cursor-pointer" href="https://github.com/Abhijeetjais98" target="_blank" rel="noreferrer">
                             <FaGithub /> <span>GitHub</span>
                         </a>
 
-                        <a className="px-4 py-2 flex gap-2 items-center hover:bg-gray-100 cursor-pointer" href="https://www.instagram.com/abhtzz/" target="_blank" rel="noreferrer">
+                        <a className="px-4 py-2 flex gap-2 items-center hover:bg-accent hover:text-accent-foreground cursor-pointer" href="https://www.instagram.com/abhtzz/" target="_blank" rel="noreferrer">
                             <FaInstagram /> <span>Instagram</span>
                         </a>
 
-                        <a className="px-4 py-2 flex gap-2 items-center hover:bg-gray-100 cursor-pointer" href="https://www.facebook.com/profile.php?id=100034254683809" target="_blank" rel="noreferrer">
+                        <a className="px-4 py-2 flex gap-2 items-center hover:bg-accent hover:text-accent-foreground cursor-pointer" href="https://www.facebook.com/profile.php?id=100034254683809" target="_blank" rel="noreferrer">
                             <FaFacebook /> <span>Facebook</span>
                         </a>
 
-                        <a className="px-4 py-2 flex gap-2 items-center hover:bg-gray-100 cursor-pointer" href="https://x.com/avijeetjais09" target="_blank" rel="noreferrer">
+                        <a className="px-4 py-2 flex gap-2 items-center hover:bg-accent hover:text-accent-foreground cursor-pointer" href="https://x.com/avijeetjais09" target="_blank" rel="noreferrer">
                             <FaTwitter /> <span>X (Twitter)</span>
                         </a>
 
-                        <a className="px-4 py-2 flex gap-2 items-center hover:bg-gray-100 cursor-pointer" href="https://www.reddit.com/user/ZEUS_A98/" target="_blank" rel="noreferrer">
+                        <a className="px-4 py-2 flex gap-2 items-center hover:bg-accent hover:text-accent-foreground cursor-pointer" href="https://www.reddit.com/user/ZEUS_A98/" target="_blank" rel="noreferrer">
                             <FaReddit /> <span>Reddit</span>
                         </a>
 
-                        <a className="px-4 py-2 flex gap-2 items-center hover:bg-gray-100 cursor-pointer" href="https://discord.com/users/1434161237037547591" target="_blank" rel="noreferrer">
+                        <a className="px-4 py-2 flex gap-2 items-center hover:bg-accent hover:text-accent-foreground cursor-pointer" href="https://discord.com/users/1434161237037547591" target="_blank" rel="noreferrer">
                             <FaDiscord /> <span>Discord</span>
                         </a>
 
-                        <a className="px-4 py-2 flex gap-2 items-center hover:bg-gray-100 cursor-pointer" href="https://www.linkedin.com/in/abhijeetjais13/" target="_blank" rel="noreferrer">
+                        <a className="px-4 py-2 flex gap-2 items-center hover:bg-accent hover:text-accent-foreground cursor-pointer" href="https://www.linkedin.com/in/abhijeetjais13/" target="_blank" rel="noreferrer">
                             <FaLinkedin /> <span>LinkedIn</span>
                         </a>
                     </div>
@@ -249,14 +250,14 @@ const MobileSocialsInline = ({ openSocials, setOpenSocials, closeMobileMenu }) =
             <button
                 onClick={() => setOpenSocials(!openSocials)}
                 aria-expanded={openSocials ? "true" : "false"}
-                className="w-full flex items-center justify-between px-3 py-2 rounded-md text-gray-200 hover:bg-white/5 cursor-pointer"
+                className="w-full flex items-center justify-between px-3 py-2 rounded-md text-foreground hover:bg-accent hover:text-accent-foreground cursor-pointer"
             >
                 <div className="flex items-center gap-3">
                     <span className="text-lg">🔗</span>
                     <span>Socials</span>
                 </div>
 
-                <div className="text-gray-300">
+                <div className="text-muted-foreground">
                     {openSocials ? <FaChevronUp /> : <FaChevronDown />}
                 </div>
             </button>
@@ -264,7 +265,7 @@ const MobileSocialsInline = ({ openSocials, setOpenSocials, closeMobileMenu }) =
             {openSocials && (
                 <div className="mt-2 pl-3 pr-2 flex flex-col gap-1 z-40">
                     <a
-                        className="block px-3 py-2 flex gap-3 items-center rounded text-gray-200 hover:bg-white/5 cursor-pointer"
+                        className="px-3 py-2 flex gap-3 items-center rounded text-foreground hover:bg-accent hover:text-accent-foreground cursor-pointer"
                         href="https://github.com/Abhijeetjais98"
                         target="_blank"
                         rel="noreferrer"
@@ -274,7 +275,7 @@ const MobileSocialsInline = ({ openSocials, setOpenSocials, closeMobileMenu }) =
                     </a>
 
                     <a
-                        className="block px-3 py-2 flex gap-3 items-center rounded text-gray-200 hover:bg-white/5 cursor-pointer"
+                        className="px-3 py-2 flex gap-3 items-center rounded text-foreground hover:bg-accent hover:text-accent-foreground cursor-pointer"
                         href="https://www.instagram.com/abhtzz/"
                         target="_blank"
                         rel="noreferrer"
@@ -284,7 +285,7 @@ const MobileSocialsInline = ({ openSocials, setOpenSocials, closeMobileMenu }) =
                     </a>
 
                     <a
-                        className="block px-3 py-2 flex gap-3 items-center rounded text-gray-200 hover:bg-white/5 cursor-pointer"
+                        className="px-3 py-2 flex gap-3 items-center rounded text-foreground hover:bg-accent hover:text-accent-foreground cursor-pointer"
                         href="https://www.facebook.com/profile.php?id=100034254683809"
                         target="_blank"
                         rel="noreferrer"
@@ -294,7 +295,7 @@ const MobileSocialsInline = ({ openSocials, setOpenSocials, closeMobileMenu }) =
                     </a>
 
                     <a
-                        className="block px-3 py-2 flex gap-3 items-center rounded text-gray-200 hover:bg-white/5 cursor-pointer"
+                        className="px-3 py-2 flex gap-3 items-center rounded text-foreground hover:bg-accent hover:text-accent-foreground cursor-pointer"
                         href="https://x.com/avijeetjais09"
                         target="_blank"
                         rel="noreferrer"
@@ -304,7 +305,7 @@ const MobileSocialsInline = ({ openSocials, setOpenSocials, closeMobileMenu }) =
                     </a>
 
                     <a
-                        className="block px-3 py-2 flex gap-3 items-center rounded text-gray-200 hover:bg-white/5 cursor-pointer"
+                        className="px-3 py-2 flex gap-3 items-center rounded text-foreground hover:bg-accent hover:text-accent-foreground cursor-pointer"
                         href="https://www.reddit.com/user/ZEUS_A98/"
                         target="_blank"
                         rel="noreferrer"
@@ -314,7 +315,7 @@ const MobileSocialsInline = ({ openSocials, setOpenSocials, closeMobileMenu }) =
                     </a>
 
                     <a
-                        className="block px-3 py-2 flex gap-3 items-center rounded text-gray-200 hover:bg-white/5 cursor-pointer"
+                        className="px-3 py-2 flex gap-3 items-center rounded text-foreground hover:bg-accent hover:text-accent-foreground cursor-pointer"
                         href="https://discord.com/users/1434161237037547591"
                         target="_blank"
                         rel="noreferrer"
@@ -324,7 +325,7 @@ const MobileSocialsInline = ({ openSocials, setOpenSocials, closeMobileMenu }) =
                     </a>
 
                     <a
-                        className="block px-3 py-2 flex gap-3 items-center rounded text-gray-200 hover:bg-white/5 cursor-pointer"
+                        className="px-3 py-2 flex gap-3 items-center rounded text-foreground hover:bg-accent hover:text-accent-foreground cursor-pointer"
                         href="https://www.linkedin.com/in/abhijeetjais13/"
                         target="_blank"
                         rel="noreferrer"
@@ -354,7 +355,7 @@ const Header = () => {
     return (
         <>
             <motion.header
-                className="py-4 sm:py-6 md:py-9 z-50 text-white"
+                className="py-4 sm:py-6 md:py-9 z-50 text-foreground"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -362,14 +363,15 @@ const Header = () => {
                 <div className="container mx-auto flex items-center justify-between md:px-64 px-4 sm:px-6">
                     <Logo />
                     <Navigation />
-                    <div className="hidden md:block">
+                    <div className="hidden md:flex items-center gap-4">
+                        <ThemeToggle />
                         <ContactButton openSocials={openSocials} setOpenSocials={setOpenSocials} />
                     </div>
 
                     {/* Mobile Menu Button */}
                     <button
                         onClick={toggleMobileMenu}
-                        className="md:hidden p-2 text-gray-300 hover:text-white transition-colors"
+                        className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
                         aria-label="Toggle menu"
                     >
                         {isMobileMenuOpen ? (
@@ -401,7 +403,7 @@ const Header = () => {
                             animate={{ x: 0 }}
                             exit={{ x: '100%' }}
                             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            className="fixed top-0 right-0 h-full w-64 bg-black/95 backdrop-blur-md border-l border-white/10 z-50 md:hidden overflow-y-auto"
+                            className="fixed top-0 right-0 h-full w-64 bg-background/95 backdrop-blur-md border-l border-border z-50 md:hidden overflow-y-auto"
                         >
                             <div className="flex flex-col h-full p-6">
                                 {/* Mobile Logo */}
@@ -416,6 +418,12 @@ const Header = () => {
                                     {/* Socials inline placed right after the nav flow (no duplicate Contact) */}
                                     <div className="mt-2">
                                         <MobileSocialsInline openSocials={openSocials} setOpenSocials={setOpenSocials} closeMobileMenu={closeMobileMenu} />
+                                    </div>
+                                    <div className="mt-4 px-3">
+                                        <div className="flex items-center justify-between text-muted-foreground">
+                                            <span>Theme</span>
+                                            <ThemeToggle />
+                                        </div>
                                     </div>
                                 </div>
 

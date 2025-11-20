@@ -55,8 +55,8 @@ const SkillsShowcase = () => {
             className="w-full mt-20"
         >
             <div className="container mx-auto px-4 sm:px-6 md:px-8">
-                <motion.div 
-                    variants={itemAnimation} 
+                <motion.div
+                    variants={itemAnimation}
                     className="flex items-center gap-2 mb-8 sm:mb-12 justify-center"
                 >
                     <div className="inline-flex items-center space-x-2 bg-secondary/10 border-[1.8px] border-zinc-900/70 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-primary backdrop-blur-sm shadow-lg">
@@ -68,21 +68,21 @@ const SkillsShowcase = () => {
                 <motion.div
                     variants={containerAnimation}
                     className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 w-full"
-                    style={{ 
+                    style={{
                         gridAutoRows: 'minmax(90px, auto)',
                         gridAutoFlow: 'row dense'
                     }}
                 >
-                {skills.map((skill, index) => (
-                    <motion.div
-                        key={skill.name}
-                        variants={itemAnimation}
-                        className={`relative group ${skill.size}`}
-                    >
-                        <div
-                            className="
-                                bg-black
-                                border-white/30
+                    {skills.map((skill, index) => (
+                        <motion.div
+                            key={skill.name}
+                            variants={itemAnimation}
+                            className={`relative group ${skill.size}`}
+                        >
+                            <div
+                                className="
+                                bg-card
+                                border-border
                                 border 
                                 p-2.5 sm:p-4 md:p-6
                                 rounded-lg sm:rounded-xl md:rounded-2xl
@@ -96,42 +96,42 @@ const SkillsShowcase = () => {
                                 box-border
                                 shadow-[0_4px_6px_rgba(0,0,0,0.5),0_0_10px_rgba(255,255,255,0.05)]
                                 transition-all duration-300
-                                group-hover:border-white/60
-                                group-hover:shadow-[0_4px_6px_rgba(0,0,0,0.5),0_0_20px_rgba(255,255,255,0.1)]
+                                group-hover:border-primary/50
+                                group-hover:shadow-[0_4px_6px_rgba(0,0,0,0.1),0_0_20px_rgba(var(--primary),0.1)]
                             "
-                            style={{ height: '100%' }}
-                        >
-                            {/* Shiny overlay effect */}
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shiny-sweep" />
-                            </div>
-                            
-                            {/* Glossy shine effect */}
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-300">
-                                <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-2xl" />
-                            </div>
-                            
-                            <div className="relative flex flex-col items-center gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 w-full z-10">
-                                {/* Icon container */}
-                                <div className="relative">
-                                    <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-md sm:rounded-lg md:rounded-xl bg-black border border-white/30 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:border-white/60 group-hover:shadow-white/20 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.15)]">
-                                        <div className="text-white drop-shadow-lg transition-transform duration-300 group-hover:scale-110">
-                                            {skill.icon}
+                                style={{ height: '100%' }}
+                            >
+                                {/* Shiny overlay effect */}
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent shiny-sweep" />
+                                </div>
+
+                                {/* Glossy shine effect */}
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-300">
+                                    <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-primary/5 to-transparent rounded-t-2xl" />
+                                </div>
+
+                                <div className="relative flex flex-col items-center gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 w-full z-10">
+                                    {/* Icon container */}
+                                    <div className="relative">
+                                        <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-md sm:rounded-lg md:rounded-xl bg-secondary border border-border flex items-center justify-center shadow-lg transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-primary/20 group-hover:shadow-[0_0_15px_rgba(var(--primary),0.15)]">
+                                            <div className="text-foreground drop-shadow-lg transition-transform duration-300 group-hover:scale-110">
+                                                {skill.icon}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                
-                                {/* Skill name */}
-                                <div className="flex flex-col items-center gap-0.5 sm:gap-1 w-full px-0.5 sm:px-1">
-                                    <span className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm font-bold text-white text-center tracking-tight transition-all duration-300 group-hover:text-white/90 break-words leading-tight">
-                                        {skill.name}
-                                    </span>
-                                    <div className="w-5 sm:w-6 md:w-8 h-0.5 bg-gradient-to-r from-transparent via-blue-500/50 to-transparent rounded-full transition-all duration-300 group-hover:via-white/60" />
+
+                                    {/* Skill name */}
+                                    <div className="flex flex-col items-center gap-0.5 sm:gap-1 w-full px-0.5 sm:px-1">
+                                        <span className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm font-bold text-card-foreground text-center tracking-tight transition-all duration-300 group-hover:text-primary break-words leading-tight">
+                                            {skill.name}
+                                        </span>
+                                        <div className="w-5 sm:w-6 md:w-8 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent rounded-full transition-all duration-300 group-hover:via-primary/80" />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </motion.div>
-                ))}
+                        </motion.div>
+                    ))}
                 </motion.div>
             </div>
         </motion.div>

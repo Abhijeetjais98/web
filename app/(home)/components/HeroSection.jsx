@@ -77,17 +77,17 @@ const HeroSection = () => {
               </motion.span>
               <motion.span
                 variants={textAnimation}
-                className="block text-white/60 text-2xl md:text-4xl"
+                className="block text-foreground text-2xl md:text-4xl"
               >
-Crafting cloud-ready code with a developer’s mindset.              </motion.span>
+                Crafting cloud-ready code with a developer’s mindset.              </motion.span>
             </motion.h1>
           </div>
 
           <motion.p
             variants={itemAnimation}
-            className="text-base sm:text-md text-muted-foreground leading-relaxed max-w-2xl mx-auto"
+            className="text-base sm:text-md text-foreground leading-relaxed max-w-2xl mx-auto"
           >
-          Combining cloud skills, Linux knowledge, and web development to build practical and efficient digital solutions.
+            Combining cloud skills, Linux knowledge, and web development to build practical and efficient digital solutions.
           </motion.p>
 
           <motion.div
@@ -106,7 +106,7 @@ Crafting cloud-ready code with a developer’s mindset.              </motion.sp
             </Link>
           </motion.div>
 
-     
+
 
           <motion.div
             initial={{ opacity: 0 }}
